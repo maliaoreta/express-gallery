@@ -1,0 +1,26 @@
+{
+  "name": "express-gallery",
+  "version": "1.0.0",
+  "description": "Express Gallery ===============",
+  "main": "server.js",
+  "dependencies": {
+    "pg": "^4.5.3",
+    "pg-hstore": "^2.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maliaoreta/express-gallery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maliaoreta/express-gallery/issues"
+  },
+  "homepage": "https://github.com/maliaoreta/express-gallery#readme"
+}
