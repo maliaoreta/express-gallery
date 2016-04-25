@@ -38,6 +38,17 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/gallery/:id', (req, res) => {
+  Photo.findAll({
+    where : {
+      id : req.params.id
+    }
+  })
+  .then((photo) => {
+    res.json(photo);
+  });
+})
+
 app.listen(3000, () => {
   db.sequelize.sync();
   console.log('Listening on 3000!');
