@@ -8,17 +8,20 @@ const express = require('express'),
 
 app.use(bodyParser.urlencoded({extended: true}));
 
+// Posting a new photo
 app.post('/gallery', (req,res) => {
   Photo.create({
     author: req.body.author,
     link: req.body.link,
-    description: req.body.description
+    description: req.body.description,
+    GalleryId: req.body.GalleryId
   })
   .then((photo) => {
     res.json(photo);
   });
 });
 
+// Post to create a new gallery
 app.post('/gallerys', (req,res) => {
   Gallery.create({
     title: req.body.title
