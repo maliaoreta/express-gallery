@@ -8,6 +8,7 @@
     "browser-sync": "^2.12.5",
     "express": "^4.13.4",
     "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.0.6",
     "gulp-sass": "^2.3.1",
     "jade": "^1.11.0",
     "pg": "^4.5.3",
@@ -16,7 +17,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "browser-sync start --server --files \"js/**/*.js\" --index index.html",
+    "test": "nodemon start --server --files \"js/**/*.js\" --index index.jade",
     "start": "node server.js"
   },
   "repository": {
