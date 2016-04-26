@@ -23,6 +23,7 @@ app.get('/gallery/new', (req,res) => {
   res.render('./newPhoto');
 });
 
+
 // Get a particular photo
 app.get('/gallery/:id', (req, res) => {
   Photo.findAll({
@@ -89,6 +90,22 @@ app.put('/gallery/:id', (req, res) => {
     res.send(error);
   });
 });
+
+//Delete :)
+app.delete('/gallery/:id', (req, res) => {
+  console.log('I am deleting things!');
+  Photo.destroy({
+    where : {
+      id : req.params.id
+    }
+  })
+  .then(() => {
+    res.redirect('/');
+  })
+  .catch((error) => {
+    res.send(error);
+  });
+})
 
 app.listen(3000, () => {
   db.sequelize.sync();
