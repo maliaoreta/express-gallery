@@ -1,0 +1,17 @@
+link(href='/css/styles.css', rel='stylesheet')
+
+block title
+  title Hi there
+
+block content
+  div
+    h1 Hellooooooo Cuties
+    p Welcome to our online portfolio!
+  div
+    img(src="#{staticPhoto}")
+  div#photoCollection
+    each photo in photoArr
+      img(src="#{photo.link}")
+      p #{photo.description}
+      p #{photo.author}
+      p #{photo.link}
