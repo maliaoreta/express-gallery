@@ -12,12 +12,11 @@
     "jade": "^1.11.0",
     "pg": "^4.5.3",
     "pg-hstore": "^2.3.2",
-    "sass": "^0.5.0",
     "sequelize": "^3.21.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "browser-sync start --server --files \"js/**/*.js\" --index index.html",
     "start": "node server.js"
   },
   "repository": {
