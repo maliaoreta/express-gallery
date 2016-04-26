@@ -1,0 +1,16 @@
+block title
+  title New Photo
+
+block content
+  header New Photo
+  form(method="POST", action="/gallery" enctype="appplication/x-www-form-urlencoded")
+    label Photo author
+    input(type="text" name="author" placeholder="Photographer name")
+    br
+    label Photo link
+    input(type="text" name="link" placeholder="Photo link")
+    br
+    label Photo description
+    input(type="text" name="description" placeholder="Photo description")
+    input(type="hidden" name="GalleryId" value="1")
+    button(id="submitBtn") Submit
