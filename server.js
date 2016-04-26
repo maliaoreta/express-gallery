@@ -7,6 +7,32 @@ const express = require('express'),
       Photo = db.Photo;
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.set('view engine', 'jade');
+
+app.get('/', (req, res) => {
+  Photo.findAll()
+  .then((photos) => {
+    res.json(photos);
+  });
+});
+
+// Get a new photo form
+app.get('/gallery/new', (req,res) => {
+  res.render('./newPhoto');
+});
+
+// Get a particular photo
+app.get('/gallery/:id', (req, res) => {
+  Photo.findAll({
+    where : {
+      id : req.params.id
+    }
+  })
+  .then((photo) => {
+    return res.json(photo);
+  });
+});
+
 
 // Posting a new photo
 app.post('/gallery', (req,res) => {
@@ -17,7 +43,7 @@ app.post('/gallery', (req,res) => {
     GalleryId: req.body.GalleryId
   })
   .then((photo) => {
-    res.json(photo);
+    return res.json(photo);
   });
 });
 
@@ -27,27 +53,10 @@ app.post('/gallerys', (req,res) => {
     title: req.body.title
   })
   .then((gallery) => {
-    res.json(gallery);
-  })
-});
-
-app.get('/', (req, res) => {
-  Photo.findAll()
-  .then((photos) => {
-    res.json(photos);
+    return res.json(gallery);
   });
 });
 
-app.get('/gallery/:id', (req, res) => {
-  Photo.findAll({
-    where : {
-      id : req.params.id
-    }
-  })
-  .then((photo) => {
-    res.json(photo);
-  });
-})
 
 app.listen(3000, () => {
   db.sequelize.sync();
