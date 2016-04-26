@@ -3,7 +3,7 @@
 const submitBtn = document.getElementById('submitBtn');
 submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
-
+  console.log(event.currentTarget.action);
   let method = document.getElementById('method').value;
   let xhrUrl = document.getElementById('xhrURL').value;
   let inputsArr = event.currentTarget.parentNode.querySelectorAll('input[name]');
@@ -17,3 +17,17 @@ submitBtn.addEventListener('click', (event) => {
   xReq.setRequestHeader('Content-Type', "application/x-www-form-urlencoded");
   xReq.send(photo);
 });
+
+const deleteBtn = document.getElementById('deleteBtn');
+deleteBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  let xhrUrl = document.getElementById('xhrURL').value;
+  const dReq = new XMLHttpRequest();
+  dReq.addEventListener('load', (event) => {
+    window.location = event.currentTarget.responseURL;
+  });
+  dReq.open("delete", xhrUrl);
+  dReq.setRequestHeader('Content-Type', "application/x-www-form-urlencoded");
+  dReq.send();
+})
