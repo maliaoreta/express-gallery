@@ -6,6 +6,7 @@ const express = require('express'),
       Gallery = db.Gallery,
       Photo = db.Photo;
 
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'jade');
 
@@ -30,6 +31,7 @@ app.get('/gallery/:id', (req, res) => {
     }
   })
   .then((photo) => {
+    console.log('hello');
     return res.json(photo);
   });
 });
@@ -69,6 +71,24 @@ app.post('/gallerys', (req,res) => {
   });
 });
 
+// '/gallery/:id/edit' route redirects here to do the editing
+app.put('/gallery/:id', (req, res) => {
+  Photo.update({
+    author: req.body.author,
+    link: req.body.link,
+    description: req.body.description
+  }, {
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(() => {
+    res.redirect('/');
+  })
+  .catch((error) => {
+    res.send(error);
+  });
+});
 
 app.listen(3000, () => {
   db.sequelize.sync();
