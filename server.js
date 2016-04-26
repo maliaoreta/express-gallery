@@ -9,6 +9,7 @@ const express = require('express'),
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'jade');
 
+//Get all photos from gallery
 app.get('/', (req, res) => {
   Photo.findAll()
   .then((photos) => {
@@ -33,6 +34,17 @@ app.get('/gallery/:id', (req, res) => {
   });
 });
 
+//Edit photo form
+app.get('/gallery/:id/edit', (req, res) => {
+  Photo.findAll({
+    where : {
+      id : req.params.id
+    }
+  })
+  .then((photo) => {
+    res.render('./editPhoto', {photo : photo[0]});
+  });
+});
 
 // Posting a new photo
 app.post('/gallery', (req,res) => {
