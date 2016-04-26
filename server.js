@@ -9,12 +9,13 @@ const express = require('express'),
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'jade');
+app.set('views', './views');
 
 //Get all photos from gallery
 app.get('/', (req, res) => {
   Photo.findAll()
   .then((photos) => {
-    res.json(photos);
+    res.render('index');
   });
 });
 
