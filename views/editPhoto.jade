@@ -2,8 +2,8 @@ block title
   title Edit Photo
 
 block content
-  header Edit Photo
-  form
+  div
+    header Edit Photo
     input(type="text" name="author" value="#{photo.author}")
     br
     input(type="text" name="link" value="#{photo.link}")
@@ -11,5 +11,6 @@ block content
     input(type="text" name="description" value="#{photo.description}")
     br
     input#method(type="hidden" value="PUT")
-    input#xhrURL(type="hidden" value="http://127.0.0.1/gallery/#{photo.id}")
+    input#xhrURL(type="hidden" value="http://localhost:3000/gallery/#{photo.id}")
     button(id="submitBtn") Submit
+  script(src="/client.js")
