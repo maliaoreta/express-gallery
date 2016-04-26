@@ -15,8 +15,18 @@ app.set('views', './views');
 app.get('/', (req, res) => {
   Photo.findAll()
   .then((photos) => {
-    res.render('index');
-  });
+    let photoArr = [];
+    photos.forEach((eachPhoto) => {
+      if (eachPhoto.description !== 'chubby narwhal'){
+        photoArr.push({
+          author : eachPhoto.author,
+          link : eachPhoto.link,
+          description : eachPhoto.description
+        });
+      }
+    });
+    res.render('index', {staticPhoto : photos[0].link, photoArr : photoArr});
+  })
 });
 
 // Get a new photo form
