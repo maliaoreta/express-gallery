@@ -12,23 +12,23 @@ app.set('view engine', 'jade');
 app.set('views', './views');
 
 //Get all photos from gallery
-// app.get('/', (req, res) => {
-//   Photo.findAll()
-//   .then((photos) => {
-//     let photoArr = [];
-//     photos.forEach((eachPhoto) => {
-//       if (eachPhoto.description !== 'chubby narwhal'){
-//         photoArr.push({
-//           author : eachPhoto.author,
-//           link : eachPhoto.link,
-//           description : eachPhoto.description,
-//           id: eachPhoto.id
-//         });
-//       }
-//     });
-//     res.render('index', {staticPhoto : photos[0].link, photoArr : photoArr});
-//   })
-// });
+app.get('/', (req, res) => {
+  Photo.findAll()
+  .then((photos) => {
+    let photoArr = [];
+    photos.forEach((eachPhoto) => {
+      if (eachPhoto.description !== 'chubby narwhal'){
+        photoArr.push({
+          author : eachPhoto.author,
+          link : eachPhoto.link,
+          description : eachPhoto.description,
+          id: eachPhoto.id
+        });
+      }
+    });
+    res.render('index', {staticPhoto : photos[0].link, photoArr : photoArr});
+  })
+});
 
 // Get a new photo form
 // app.get('/gallery/new', (req,res) => {
@@ -37,42 +37,23 @@ app.set('views', './views');
 
 // Get a particular photo
 app.get('/gallery/:id', function (req, res) {
-  console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
-  // Photo.findAll()
-  // .then(function (photos) {
-    // let photoArr = [];
-    // let photo = [];
-    // photos.forEach((eachPhoto) => {
-    //   if (eachPhoto.id !== 2){
-    //     photoArr.push({
-    //       author : eachPhoto.author,
-    //       link : eachPhoto.link,
-    //       description : eachPhoto.description,
-    //       id: eachPhoto.id
-    //     });
-    //   }
-    //   else {
-    //     photo.push({
-    //       author: eachPhoto.author,
-    //       link: eachPhoto.link,
-    //       description: eachPhoto.description
-    //     })
-    //   }
-    // });
-    // res.render('./photoDetail', {photo: photo, photoArr: photoArr});
-    // return res.render('./photoDetail', {photo: photos});
-  // })
-  res.render('./photoDetail', {photo: {
-          author: 'laura',
-          link: 'https://s-media-cache-ak0.pinimg.com/236x/8d/a1/02/8da1022e0e07d38b594cf6a2ef307a78.jpg',
-          description: 'hello'
-        }});
+  Photo.findAll()
+  .then(function (photos) {
+    
+    let photoArr = photos.filter((photoItem) => {
+      return photoItem.id !== Number(req.params.id)
+    });
+
+    let photo = photos.filter((photoItem) => {
+      return photoItem.id === Number(req.params.id)
+    });
+    
+    res.render('./photoDetail', {photo: photo[0], photoArr: photoArr});
+  })
+  .catch((error) => {
+    throw new Error (error);
+  });
 });
-
-
-
-
-
 
 // //Edit photo form
 // app.get('/gallery/:id/edit', (req, res) => {
