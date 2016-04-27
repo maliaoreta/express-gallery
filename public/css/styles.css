@@ -1,2 +1,27 @@
 body {
-  background-color: hotpink; }
+  background-image: url("./img/ticks.png");
+  font-family: 'Open Sans', sans-serif;
+  color: gray;
+  width: 90%;
+  margin: auto; }
+
+#header {
+  margin-top: 3em;
+  border-top: .5px solid lightgray;
+  display: flex;
+  flex-flow: row wrap; }
+
+#architekt {
+  flex: 0 1 60%;
+  font-size: 40px; }
+  #architekt h1 {
+    justify-content: flex-start;
+    margin: 0px;
+    padding-bottom: 1em; }
+
+#welcome {
+  flex: 0 1 39%;
+  padding: 5px; }
+  #welcome p {
+    border-left: 2px solid lightgray;
+    padding-left: 20px; }
