@@ -1,12 +1,14 @@
 extends layout
 
 block content
-  div
-    img(src="#{staticPhoto}")
-  div#photoCollection
-    each photo in photoArr
-      a(href="http://localhost:3000/gallery/#{photo.id}")
-        img(src="#{photo.link}")
-        p #{photo.description}
-        p #{photo.author}
-        p #{photo.link}
+  div#container
+    div#staticPhotoDiv
+      img#staticPhoto(src="#{staticPhoto}")
+    div#photoCollection
+      each photo in photoArr
+        div.imageContainer
+          a(href="http://localhost:3000/gallery/#{photo.id}")
+            img(src="#{photo.link}")
+            p #{photo.description}
+            p #{photo.author}
+            p #{photo.link}

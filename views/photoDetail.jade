@@ -6,7 +6,7 @@ block content
     p #{photo.link}
     img(src="#{photo.link}")
     p #{photo.description}
-  div#photoCollection
+  div#photos
     each photoItem in photoArr
       a(href="http://localhost:3000/gallery/#{photoItem.id}")
         img(src="#{photoItem.link}")
