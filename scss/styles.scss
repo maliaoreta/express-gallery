@@ -2,7 +2,7 @@ body{
   background-image: url('./img/ticks.png');
   font-family: 'Open Sans', sans-serif;
   color: gray;
-  width: 90%;
+  width: 80%;
   margin: auto;
 }
 #header{
@@ -26,5 +26,27 @@ body{
   p{
     border-left: 2px solid lightgray;
     padding-left: 20px;
+  }
+}
+
+// starting styles for detailed view
+#detailContainer {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#focusedPhoto {
+  flex: 0 1 58%;
+}
+
+#photos {
+  flex: 0 1 40%;
+  background-color: pink;
+  overflow: auto;
+  overflow-wrap: break-word;
+  padding-left: 1.55em;
+
+  #collectionImgs {
+    max-width: 80%; 
   }
 }
