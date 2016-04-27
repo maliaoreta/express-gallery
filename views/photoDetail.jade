@@ -1,15 +1,16 @@
 extends layout
 
 block content
-  div#focusedPhoto
-    p #{photo.author}
-    p #{photo.link}
-    img(src="#{photo.link}")
-    p #{photo.description}
-  div#photoCollection
-    each photoItem in photoArr
-      a(href="http://localhost:3000/gallery/#{photoItem.id}")
-        img(src="#{photoItem.link}")
-        p #{photoItem.description}
-        p #{photoItem.author}
-        p #{photoItem.link}
+  div#detailContainer
+    div#focusedPhoto
+      p #{photo.author}
+      p #{photo.link}
+      img(src="#{photo.link}")
+      p#singleDescription #{photo.description} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo nesciunt debitis reiciendis optio, autem sed delectus non, culpa incidunt minus facere ipsa quos cupiditate in, repellat perferendis distinctio aperiam sapiente.
+    div#photos
+      each photoItem in photoArr
+        a(href="http://localhost:3000/gallery/#{photoItem.id}")
+          img#collectionImgs(src="#{photoItem.link}")
+          p#collectionDescription #{photoItem.description}
+          p #{photoItem.author}
+          p#collectionLink #{photoItem.link}
