@@ -1,9 +1,10 @@
 'use strict'
 
+// xhr request for submit button to post a photo
 const submitBtn = document.getElementById('submitBtn');
 submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
-  console.log(event.currentTarget.action);
+
   let method = document.getElementById('method').value;
   let xhrUrl = document.getElementById('xhrURL').value;
   let inputsArr = event.currentTarget.parentNode.querySelectorAll('input[name]');
@@ -18,6 +19,7 @@ submitBtn.addEventListener('click', (event) => {
   xReq.send(photo);
 });
 
+// xhr request for delete button to delete a photo from database
 const deleteBtn = document.getElementById('deleteBtn');
 deleteBtn.addEventListener('click', (event) => {
   event.preventDefault();
@@ -30,4 +32,4 @@ deleteBtn.addEventListener('click', (event) => {
   dReq.open("delete", xhrUrl);
   dReq.setRequestHeader('Content-Type', "application/x-www-form-urlencoded");
   dReq.send();
-})
+});
