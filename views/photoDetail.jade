@@ -1,12 +1,15 @@
-div#focusedPhoto
-  p #{photo.author}
-  p #{photo.link}
-  img(src="#{photo.link}")
-  p #{photo.description}
-div#photoCollection
-  p oh hai
-  each photoItem in photoArr
-    img(src="#{photoItem.link}")
-    p #{photoItem.description}
-    p #{photoItem.author}
-    p #{photoItem.link}
+extends layout
+
+block content
+  div#focusedPhoto
+    p #{photo.author}
+    p #{photo.link}
+    img(src="#{photo.link}")
+    p #{photo.description}
+  div#photoCollection
+    each photoItem in photoArr
+      a(href="http://localhost:3000/gallery/#{photoItem.id}")
+        img(src="#{photoItem.link}")
+        p #{photoItem.description}
+        p #{photoItem.author}
+        p #{photoItem.link}
