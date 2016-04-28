@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  header Login
+  form(method="POST" action="/login")
+    input(type="text" name="username" placeholder="username")
+    br
+    input(type="password" name="password" placeholder="password")
+    br
+    button#login(type="submit") Submit
