@@ -1,16 +1,16 @@
-block title
-  title New Photo
+extends layout
 
 block content
   header New Photo
-  form(method="POST", action="/gallery" enctype="appplication/x-www-form-urlencoded")
+  form#newForm(method="POST", action="/gallery" enctype="appplication/x-www-form-urlencoded")
     label Photo author
-    input(type="text" name="author" placeholder="Photographer name")
+    input(type="text" name="author" placeholder="Photographer Name")
     br
     label Photo link
-    input(type="text" name="link" placeholder="Photo link")
+    input(type="text" name="link" placeholder="Photo Link")
     br
-    label Photo description
-    input(type="text" name="description" placeholder="Photo description")
+    label Description
+    input(type="text" name="description" placeholder="Photo Description")
     input(type="hidden" name="GalleryId" value="1")
+    br
     button(id="submitBtn") Submit
