@@ -25,7 +25,6 @@ body {
     border-left: 2px solid lightgray;
     padding-left: 20px; }
 
-/*MALIAAAA*/
 #detailContainer {
   display: flex;
   flex-flow: row wrap; }
@@ -58,7 +57,6 @@ a {
   text-decoration: none;
   color: gray; }
 
-/*LAURAAA*/
 #container {
   display: flex;
   flex-flow: row wrap; }
@@ -96,3 +94,29 @@ a {
         font-family: times;
         font-size: 90%; }
 
+header {
+  font-size: 270%;
+  margin: 20px;
+  font-family: times; }
+
+#newForm {
+  background-color: white;
+  font-family: times;
+  border: 2px solid lightgray;
+  border-radius: 8px;
+  padding: 30px;
+  width: 45%; }
+  #newForm label {
+    margin-right: 10px;
+    padding: 5px 0px;
+    font-family: times;
+    font-size: 210%; }
+  #newForm input {
+    margin: 5px 0px;
+    font-size: 180%;
+    border-radius: 8px;
+    padding-left: 5px; }
+  #newForm button {
+    font-family: times;
+    font-size: 170%;
+    margin-top: 40px; }
