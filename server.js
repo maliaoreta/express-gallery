@@ -4,10 +4,42 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       db = require('./models'),
       Gallery = db.Gallery,
-      Photo = db.Photo;
+      Photo = db.Photo,
+      passport = require('passport'),
+      session = require('express-session'),
+      LocalStrategy = require('passport-local').Strategy,
+      CONFIG = require('./config/config.json'),
+      isAuthorized = require('./middleware/isAuthorized.js');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(session({
+  resave: true,
+  saveUninitialized: true,
+  secret: CONFIG.Secret.secret
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(
+  (username, password, done) => {
+    let USERNAME = CONFIG.Secret.username;
+    let PASSWORD = CONFIG.Secret.password;
+
+    if (!(username === USERNAME && password === PASSWORD)) {
+      return done(null, false)
+    }
+    let user = {
+      name: USERNAME
+    };
+    return done(null, user);
+  }
+));
+passport.serializeUser((user, done) => {
+  return done(null, user);
+});
+passport.deserializeUser((user, done) => {
+  return done(null, user);
+});
 app.set('view engine', 'jade');
 app.set('views', './views');
 
@@ -31,7 +63,7 @@ app.get('/', (req, res) => {
 });
 
 // Get a new photo form
-app.get('/gallery/new', (req,res) => {
+app.get('/gallery/new', isAuthorized(), (req,res) => {
   res.render('./newPhoto');
 });
 
@@ -55,7 +87,7 @@ app.get('/gallery/:id', function (req, res) {
 });
 
 // //Edit photo form
-app.get('/gallery/:id/edit', (req, res) => {
+app.get('/gallery/:id/edit', isAuthorized(), (req, res) => {
   Photo.findAll({
     where : {
       id : req.params.id
@@ -65,6 +97,19 @@ app.get('/gallery/:id/edit', (req, res) => {
     res.render('./editPhoto', {photo : photo[0]});
   });
 });
+
+// Get login page
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
+// Post login info
+app.post('/login',
+  passport.authenticate('local', {
+    successRedirect : '/',
+    failureRedirect : '/login'
+  })
+);
 
 // // Posting a new photo
 app.post('/gallery', (req,res) => {
@@ -109,8 +154,7 @@ app.put('/gallery/:id', (req, res) => {
 });
 
 // //Delete :)
-app.delete('/gallery/:id', (req, res) => {
-  console.log('I am deleting things!');
+app.delete('/gallery/:id', isAuthorized(), (req, res) => {
   Photo.destroy({
     where : {
       id : req.params.id
