@@ -27,6 +27,9 @@ passport.use(new LocalStrategy(
       where: { username : username, password : password }
     })
     .then((User) => {
+      if (User === null) {
+        return done(null, false)
+      }
       let USERNAME = User.username;
       let PASSWORD = User.password;
       if (!(username === USERNAME && password === PASSWORD)) {
@@ -148,6 +151,21 @@ app.post('/gallerys', (req,res) => {
   });
 });
 
+// Post to register a new User
+app.post('/register', (req, res) => {
+  User.create({
+    first_name: req.body.first_name,
+    username: req.body.username,
+    password: req.body.password
+  })
+  .then((user) => {
+    return res.redirect('/login');
+  })
+  .catch((error) => {
+    throw new Error (error);
+  });
+});
+
 // // '/gallery/:id/edit' route redirects here to do the editing
 app.put('/gallery/:id', (req, res) => {
   Photo.update({
@@ -180,7 +198,7 @@ app.delete('/gallery/:id', isAuthorized(), (req, res) => {
   .catch((error) => {
     res.send(error);
   });
-})
+});
 
 app.listen(3000, () => {
   db.sequelize.sync();
