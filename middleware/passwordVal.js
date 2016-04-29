@@ -5,7 +5,7 @@ function passwordVal () {
 
     let regInfo = req.body;
     if (!(regInfo.password === regInfo.passwordVal)) {
-      return res.status(400);
+      return res.sendStatus(400);
     }
 
     return next();
