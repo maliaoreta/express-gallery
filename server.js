@@ -73,6 +73,9 @@ app.get('/', (req, res) => {
     });
     res.render('index', {staticPhoto : photos[0].link, photoArr : photoArr});
   })
+  .catch((error) => {
+    return res.render('404');
+  })
 });
 
 // Get a new photo form
@@ -92,10 +95,15 @@ app.get('/gallery/:id', function (req, res) {
     let photo = photos.filter((photoItem) => {
       return photoItem.id === Number(req.params.id)
     });
-    res.render('./photoDetail', {photo: photo[0], photoArr: photoArr});
+    
+    if (photo[0] === undefined) {
+      return res.render('404');
+    }
+
+    return res.render('./photoDetail', {photo: photo[0], photoArr: photoArr});
   })
   .catch((error) => {
-    throw new Error (error);
+    return res.render('404');
   });
 });
 
@@ -107,8 +115,11 @@ app.get('/gallery/:id/edit', isAuthorized(), (req, res) => {
     }
   })
   .then((photo) => {
-    res.render('./editPhoto', {photo : photo[0]});
-  });
+    return res.render('./editPhoto', {photo : photo[0]});
+  })
+  .catch((error) => {
+    return res.render('404');
+  })
 });
 
 // Get login page
@@ -140,7 +151,10 @@ app.post('/gallery', (req,res) => {
   })
   .then((photo) => {
     return res.json(photo);
-  });
+  })
+  .catch((error) => {
+    return res.render('404');
+  })
 });
 
 // // Post to create a new gallery
@@ -150,7 +164,7 @@ app.post('/gallerys', (req,res) => {
   })
   .then((gallery) => {
     return res.json(gallery);
-  });
+  })
 });
 
 // Post to register a new User
@@ -183,7 +197,7 @@ app.put('/gallery/:id', (req, res) => {
     res.redirect('/');
   })
   .catch((error) => {
-    res.send(error);
+    return res.render('404');
   });
 });
 
@@ -198,8 +212,8 @@ app.delete('/gallery/:id', isAuthorized(), (req, res) => {
     res.redirect('/');
   })
   .catch((error) => {
-    res.send(error);
-  });
+    return res.render('404');
+  })
 });
 
 app.listen(3000, () => {
