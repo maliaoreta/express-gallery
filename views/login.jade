@@ -1,26 +1,37 @@
 extends layout
 
 block content
+  header Login
   div#loginForm
-    header Login
     form(method="POST" action="/login")
-      input(type="text" name="username" placeholder="username")
+      label Username
       br
-      input(type="password" name="password" placeholder="password")
+      input(type="text" name="username")
+      br
+      label Password
+      br
+      input(type="password" name="password")
       br
       button#login(type="submit") Submit
+  header Don't have an account? Sign Up Here!
   div#registerForm
-    header Don't have an account?
-    header Sign up!
     div#errorDiv
     form
-      input(type="text" name="first_name" placeholder="name")
+      label First Name
       br
-      input(type="text" name="username" placeholder="username")
+      input(type="text" name="first_name")
       br
-      input(type="password" name="password" placeholder="password")
+      label Username
       br
-      input(type="password" name="passwordVal" placeholder="re-enter password")
+      input(type="text" name="username")
+      br
+      label Password
+      br
+      input(type="password" name="password")
+      br
+      label Re-Enter Password
+      br
+      input(type="password" name="passwordVal")
       br
       button#register Register
   script(src="/registerXHR.js")
