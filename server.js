@@ -163,7 +163,7 @@ app.post('/register', passwordVal(), (req, res) => {
     return res.redirect('/login');
   })
   .catch((error) => {
-    throw new Error (error);
+    return res.send(error);
   });
 });
 
