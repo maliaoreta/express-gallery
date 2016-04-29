@@ -77,22 +77,29 @@ a {
   flex-flow: row wrap;
   justify-content: space-between;
   flex: 1 0 100%; }
-  #photoCollection .imageContainer {
+  #photoCollection .aContainer {
     flex: 1 0 32%;
     display: flex;
     flex-flow: nowrap;
     margin-top: 20px;
     max-width: 32%;
     overflow: hidden; }
-    #photoCollection .imageContainer a {
+    #photoCollection .aContainer a {
       text-decoration: none; }
-      #photoCollection .imageContainer a img {
-        width: 100%; }
-      #photoCollection .imageContainer a p {
+      #photoCollection .aContainer a #imageContainer {
+        height: 25em;
+        max-width: 26em;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-top: 10px solid lightgray; }
+      #photoCollection .aContainer a p {
         color: gray;
         flex: 1 1 auto;
         font-family: times;
-        font-size: 90%; }
+        font-size: 90%;
+        background-color: lavender;
+        margin: 0; }
 
 header {
   font-size: 270%;
