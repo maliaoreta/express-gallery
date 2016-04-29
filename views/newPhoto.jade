@@ -4,12 +4,15 @@ block content
   header New Photo
   form#newForm(method="POST", action="/gallery" enctype="appplication/x-www-form-urlencoded")
     label Photo author
+    br
     input(type="text" name="author" placeholder="Photographer Name")
     br
     label Photo link
+    br
     input(type="text" name="link" placeholder="Photo Link")
     br
     label Description
+    br
     input(type="text" name="description" placeholder="Photo Description")
     input(type="hidden" name="GalleryId" value="1")
     br

@@ -1,11 +1,17 @@
 extends layout
 
 block content
-  div
-    header Edit Photo
+  header Edit Photo
+  div#editForm
+    label Photo Author
+    br
     input(type="text" name="author" value="#{photo.author}")
     br
+    label Photo Link
+    br
     input(type="text" name="link" value="#{photo.link}")
+    br
+    label Description
     br
     input(type="text" name="description" value="#{photo.description}")
     br
