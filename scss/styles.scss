@@ -63,7 +63,7 @@ body{
 }
 
 
-// starting styles for detailed view
+// Detailed View
 #detailContainer {
   display: flex;
   flex-flow: row wrap;
@@ -107,7 +107,7 @@ a {
 }
 
 
-// LAURAAAAAAA
+// Main Gallery Page
 #container{
   display: flex;
   flex-flow: row wrap;
@@ -158,7 +158,7 @@ a {
       font-size: 1.3em;
     }
   }
-  
+
   // .borderLine:nth-child(3n+0) {
   //   flex: 0 1 100%;
   //   margin-top: 1.5em;
@@ -177,7 +177,7 @@ a {
 }
 
 
-// NEW PHOTO FORM
+// New Photo Form && All form headers
 header{
   font-size: 1.5em;
   margin-bottom: 10px;
@@ -251,6 +251,7 @@ header{
   }
 }
 
+//Edit Photo Form
 #editForm{
   background-color: white;
   font-family: times;
@@ -306,6 +307,7 @@ header{
   }
 }
 
+//Login Form
 #loginForm{
   background-color: white;
   font-family: times;
@@ -360,6 +362,7 @@ header{
   }
 }
 
+//Registration Form
 #registerForm{
   background-color: white;
   font-family: times;
