@@ -105,11 +105,20 @@ a {
     height: 2px; }
 
 header {
-  font-size: 270%;
-  margin-bottom: 20px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
   margin-top: 50px;
   font-family: times;
-  color: #4d4d4d; }
+  color: #4d4d4d;
+  font-weight: bold; }
+  @media only screen and (min-width: 550px) {
+    header {
+      font-size: 1.7em;
+      margin-bottom: 20px;
+      font-weight: normal; } }
+  @media only screen and (min-width: 800px) {
+    header {
+      font-size: 2.5em; } }
 
 #newForm {
   background-color: white;
@@ -117,23 +126,42 @@ header {
   border: 2px solid lightgray;
   border-radius: 8px;
   padding: 30px;
-  width: 45%; }
+  display: inline-block; }
   #newForm label {
     margin-right: 10px;
     padding: 5px 0px;
     font-family: times;
-    font-size: 210%;
+    font-size: 1.2em;
     color: #676767; }
+    @media only screen and (min-width: 550px) {
+      #newForm label {
+        font-size: 1.6em; } }
+    @media only screen and (min-width: 800px) {
+      #newForm label {
+        font-size: 2em; } }
   #newForm input {
-    font-size: 180%;
-    border-radius: 8px;
+    font-size: 1.2em;
+    border-radius: 3px;
     padding-left: 5px;
-    margin-bottom: 15px;
-    color: white; }
+    margin-bottom: 15px; }
+    @media only screen and (min-width: 550px) {
+      #newForm input {
+        font-size: 1.5em; } }
+    @media only screen and (min-width: 800px) {
+      #newForm input {
+        font-size: 1.8em;
+        border-radius: 8px; } }
   #newForm button {
     font-family: times;
-    font-size: 190%;
-    margin-top: 40px; }
+    font-size: 1.5em;
+    margin-top: 3px;
+    margin-bottom: 3px; }
+    @media only screen and (min-width: 550px) {
+      #newForm button {
+        font-size: 1.7em; } }
+    @media only screen and (min-width: 800px) {
+      #newForm button {
+        font-size: 2em; } }
 
 #editForm {
   background-color: white;
@@ -141,24 +169,43 @@ header {
   border: 2px solid lightgray;
   border-radius: 8px;
   padding: 30px;
-  width: 45%; }
+  display: inline-block; }
   #editForm label {
     margin-right: 10px;
     padding: 5px 0px;
     font-family: times;
-    font-size: 210%;
+    font-size: 1.2em;
     color: #676767; }
+    @media only screen and (min-width: 550px) {
+      #editForm label {
+        font-size: 1.6em; } }
+    @media only screen and (min-width: 800px) {
+      #editForm label {
+        font-size: 2em; } }
   #editForm input {
-    font-size: 180%;
-    border-radius: 8px;
+    font-size: 1.2em;
+    border-radius: 3px;
     padding-left: 5px;
-    margin-bottom: 15px;
-    color: white; }
+    margin-bottom: 15px; }
+    @media only screen and (min-width: 550px) {
+      #editForm input {
+        font-size: 1.5em; } }
+    @media only screen and (min-width: 800px) {
+      #editForm input {
+        font-size: 1.8em;
+        border-radius: 8px; } }
   #editForm button {
     font-family: times;
-    font-size: 190%;
-    margin-top: 40px;
-    margin: 3px; }
+    font-size: 1.5em;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 5px; }
+    @media only screen and (min-width: 550px) {
+      #editForm button {
+        font-size: 1.7em; } }
+    @media only screen and (min-width: 800px) {
+      #editForm button {
+        font-size: 2em; } }
 
 #loginForm {
   background-color: white;
@@ -166,23 +213,42 @@ header {
   border: 2px solid lightgray;
   border-radius: 8px;
   padding: 30px;
-  width: 45%; }
+  display: inline-block; }
   #loginForm label {
     margin-right: 10px;
     padding: 5px 0px;
     font-family: times;
-    font-size: 210%;
+    font-size: 1.2em;
     color: #676767; }
+    @media only screen and (min-width: 550px) {
+      #loginForm label {
+        font-size: 1.6em; } }
+    @media only screen and (min-width: 800px) {
+      #loginForm label {
+        font-size: 2em; } }
   #loginForm input {
-    font-size: 180%;
-    border-radius: 8px;
+    font-size: 1.2em;
+    border-radius: 3px;
     padding-left: 5px;
     margin-bottom: 15px; }
+    @media only screen and (min-width: 550px) {
+      #loginForm input {
+        font-size: 1.5em; } }
+    @media only screen and (min-width: 800px) {
+      #loginForm input {
+        font-size: 1.8em;
+        border-radius: 8px; } }
   #loginForm button {
     font-family: times;
-    font-size: 190%;
-    margin-top: 40px;
-    margin: 3px; }
+    font-size: 1.5em;
+    margin-top: 3px;
+    margin-bottom: 3px; }
+    @media only screen and (min-width: 550px) {
+      #loginForm button {
+        font-size: 1.7em; } }
+    @media only screen and (min-width: 800px) {
+      #loginForm button {
+        font-size: 2em; } }
 
 #registerForm {
   background-color: white;
@@ -190,27 +256,39 @@ header {
   border: 2px solid lightgray;
   border-radius: 8px;
   padding: 30px;
-  width: 45%; }
+  display: inline-block; }
   #registerForm label {
     margin-right: 10px;
     padding: 5px 0px;
     font-family: times;
-    font-size: 210%;
+    font-size: 1.2em;
     color: #676767; }
     @media only screen and (min-width: 550px) {
       #registerForm label {
-        font-size: 100%;
-        background-color: red; } }
+        font-size: 1.6em; } }
     @media only screen and (min-width: 800px) {
       #registerForm label {
-        background-color: pink; } }
+        font-size: 2em; } }
   #registerForm input {
-    font-size: 180%;
-    border-radius: 8px;
+    font-size: 1.2em;
+    border-radius: 3px;
     padding-left: 5px;
     margin-bottom: 15px; }
+    @media only screen and (min-width: 550px) {
+      #registerForm input {
+        font-size: 1.5em; } }
+    @media only screen and (min-width: 800px) {
+      #registerForm input {
+        font-size: 1.8em;
+        border-radius: 8px; } }
   #registerForm button {
     font-family: times;
-    font-size: 190%;
-    margin-top: 40px;
-    margin: 3px; }
+    font-size: 1.5em;
+    margin-top: 3px;
+    margin-bottom: 3px; }
+    @media only screen and (min-width: 550px) {
+      #registerForm button {
+        font-size: 1.7em; } }
+    @media only screen and (min-width: 800px) {
+      #registerForm button {
+        font-size: 2em; } }
