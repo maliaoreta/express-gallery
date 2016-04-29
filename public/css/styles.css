@@ -194,6 +194,13 @@ header {
     font-family: times;
     font-size: 210%;
     color: #676767; }
+    @media only screen and (min-width: 550px) {
+      #registerForm label {
+        font-size: 100%;
+        background-color: red; } }
+    @media only screen and (min-width: 800px) {
+      #registerForm label {
+        background-color: pink; } }
   #registerForm input {
     font-size: 180%;
     border-radius: 8px;

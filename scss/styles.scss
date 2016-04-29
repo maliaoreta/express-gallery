@@ -1,3 +1,23 @@
+//MIXINS
+
+$breakpoints: (
+  'medium': 550px,
+  'large':  800px
+) !default;
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media only screen and (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+
 body{
   background-image: url('./img/ticks.png');
   font-family: 'Open Sans', sans-serif;
@@ -244,6 +264,15 @@ header{
     font-family: times;
     font-size: 210%;
     color: darken(gray, 10%);
+
+    @include respond-to('medium') {
+      font-size: 100%;
+      background-color: red;
+    }
+
+    @include respond-to('large') {
+      background-color: pink;
+    }
   }
   input{
     font-size: 180%;
