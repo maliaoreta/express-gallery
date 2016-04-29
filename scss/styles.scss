@@ -98,7 +98,10 @@ a {
   flex-flow: row wrap;
   justify-content: space-between;
   flex: 1 0 100%;
-  .imageContainer{
+  // background-color: lightgreen;
+
+
+  .aContainer{
     flex: 1 0 32%;
     display: flex;
     flex-flow: nowrap;
@@ -108,12 +111,14 @@ a {
 
     a{
       text-decoration: none;
-      // display: flex;
 
-      img{
-        // flex: 1 1 auto;
-        width: 100%;
-        // min-height: 30%;
+      #imageContainer {
+        height: 25em;
+        max-width: 26em;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-top: 10px solid lightgray;
       }
 
       p{
@@ -121,6 +126,8 @@ a {
         flex: 1 1 auto;
         font-family: times;
         font-size: 90%;
+        background-color: lavender;
+        margin: 0;
       }
     }
   }
