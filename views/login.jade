@@ -12,13 +12,14 @@ block content
   div#registerForm
     header Don't have an account?
     header Sign up!
-    form(method="POST" action="/register")
-      input(type="text" name="first_name" placeholder="name")
-      br
-      input(type="text" name="username" placeholder="username")
-      br
-      input(type="password" name="password" placeholder="password")
-      br
-      input(type="password" name="passwordVal" placeholder="re-enter password")
-      br
-      button#register(type="submit") Register
+    div#wrongPassword
+    input(type="text" name="first_name" placeholder="name")
+    br
+    input(type="text" name="username" placeholder="username")
+    br
+    input(type="password" name="password" placeholder="password")
+    br
+    input(type="password" name="passwordVal" placeholder="re-enter password")
+    br
+    button#register Register
+  script(src="/registerXHR.js")  
