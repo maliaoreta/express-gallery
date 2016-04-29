@@ -155,11 +155,22 @@ a {
 
 // NEW PHOTO FORM
 header{
-  font-size: 270%;
-  margin-bottom: 20px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
   margin-top: 50px;
   font-family: times;
   color: darken(gray, 20%);
+  font-weight: bold;
+
+  @include respond-to('medium') {
+    font-size: 1.7em;
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+
+  @include respond-to('large') {
+  font-size: 2.5em;
+  }
 }
 
 #newForm{
@@ -168,26 +179,51 @@ header{
   border: 2px solid lightgray;
   border-radius: 8px;
   padding: 30px;
-  width: 45%;
+  display: inline-block;
 
   label{
     margin-right: 10px;
     padding: 5px 0px;
     font-family: times;
-    font-size: 210%;
+    font-size: 1.2em;
     color: darken(gray, 10%);
+
+    @include respond-to('medium') {
+      font-size: 1.6em;
+    }
+
+    @include respond-to('large') {
+      font-size: 2em;
+    }
   }
   input{
-    font-size: 180%;
-    border-radius: 8px;
+    font-size: 1.2em;
+    border-radius: 3px;
     padding-left: 5px;
     margin-bottom: 15px;
-    color: lighten(lightgray, 90%);
+
+    @include respond-to('medium') {
+      font-size: 1.5em;
+    }
+
+    @include respond-to('large') {
+    font-size: 1.8em;
+    border-radius: 8px;
+    }
   }
   button{
     font-family: times;
-    font-size: 190%;
-    margin-top: 40px;
+    font-size: 1.5em;
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+    @include respond-to('medium') {
+      font-size: 1.7em;
+    }
+
+    @include respond-to('large') {
+      font-size: 2em;
+    }
   }
 }
 
@@ -197,27 +233,52 @@ header{
   border: 2px solid lightgray;
   border-radius: 8px;
   padding: 30px;
-  width: 45%;
+  display: inline-block;
 
   label{
     margin-right: 10px;
     padding: 5px 0px;
     font-family: times;
-    font-size: 210%;
+    font-size: 1.2em;
     color: darken(gray, 10%);
+
+    @include respond-to('medium') {
+      font-size: 1.6em;
+    }
+
+    @include respond-to('large') {
+      font-size: 2em;
+    }
   }
   input{
-    font-size: 180%;
-    border-radius: 8px;
+    font-size: 1.2em;
+    border-radius: 3px;
     padding-left: 5px;
     margin-bottom: 15px;
-    color: lighten(lightgray, 90%);
+
+    @include respond-to('medium') {
+      font-size: 1.5em;
+    }
+
+    @include respond-to('large') {
+    font-size: 1.8em;
+    border-radius: 8px;
+    }
   }
   button{
     font-family: times;
-    font-size: 190%;
-    margin-top: 40px;
-    margin: 3px;
+    font-size: 1.5em;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 5px;
+
+    @include respond-to('medium') {
+      font-size: 1.7em;
+    }
+
+    @include respond-to('large') {
+      font-size: 2em;
+    }
   }
 }
 
@@ -227,26 +288,51 @@ header{
   border: 2px solid lightgray;
   border-radius: 8px;
   padding: 30px;
-  width: 45%;
+  display: inline-block;
 
   label{
     margin-right: 10px;
     padding: 5px 0px;
     font-family: times;
-    font-size: 210%;
+    font-size: 1.2em;
     color: darken(gray, 10%);
+
+    @include respond-to('medium') {
+      font-size: 1.6em;
+    }
+
+    @include respond-to('large') {
+      font-size: 2em;
+    }
   }
   input{
-    font-size: 180%;
-    border-radius: 8px;
+    font-size: 1.2em;
+    border-radius: 3px;
     padding-left: 5px;
     margin-bottom: 15px;
+
+    @include respond-to('medium') {
+      font-size: 1.5em;
+    }
+
+    @include respond-to('large') {
+    font-size: 1.8em;
+    border-radius: 8px;
+    }
   }
   button{
     font-family: times;
-    font-size: 190%;
-    margin-top: 40px;
-    margin: 3px;
+    font-size: 1.5em;
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+    @include respond-to('medium') {
+      font-size: 1.7em;
+    }
+
+    @include respond-to('large') {
+      font-size: 2em;
+    }
   }
 }
 
@@ -256,35 +342,51 @@ header{
   border: 2px solid lightgray;
   border-radius: 8px;
   padding: 30px;
-  width: 45%;
+  display: inline-block;
 
   label{
     margin-right: 10px;
     padding: 5px 0px;
     font-family: times;
-    font-size: 210%;
+    font-size: 1.2em;
     color: darken(gray, 10%);
 
     @include respond-to('medium') {
-      font-size: 100%;
-      background-color: red;
+      font-size: 1.6em;
     }
 
     @include respond-to('large') {
-      background-color: pink;
+      font-size: 2em;
     }
   }
   input{
-    font-size: 180%;
-    border-radius: 8px;
+    font-size: 1.2em;
+    border-radius: 3px;
     padding-left: 5px;
     margin-bottom: 15px;
+
+    @include respond-to('medium') {
+      font-size: 1.5em;
+    }
+
+    @include respond-to('large') {
+    font-size: 1.8em;
+    border-radius: 8px;
+    }
   }
   button{
     font-family: times;
-    font-size: 190%;
-    margin-top: 40px;
-    margin: 3px;
+    font-size: 1.5em;
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+    @include respond-to('medium') {
+      font-size: 1.7em;
+    }
+
+    @include respond-to('large') {
+      font-size: 2em;
+    }
   }
 }
 
