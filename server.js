@@ -12,7 +12,8 @@ const express = require('express'),
       CONFIG = require('./config/config.json'),
       isAuthorized = require('./middleware/isAuthorized.js'),
       passwordVal = require('./middleware/passwordVal'),
-      usernameVerification = require('./middleware/usernameVerification');
+      usernameVerification = require('./middleware/usernameVerification'),
+      bcrypt = require('bcrypt');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -74,7 +75,8 @@ app.get('/', (req, res) => {
     res.render('index', {staticPhoto : photos[0].link, photoArr : photoArr});
   })
   .catch((error) => {
-    return res.render('404');
+    console.log(error);
+    return res.send(error);
   })
 });
 
@@ -95,7 +97,7 @@ app.get('/gallery/:id', function (req, res) {
     let photo = photos.filter((photoItem) => {
       return photoItem.id === Number(req.params.id)
     });
-    
+
     if (photo[0] === undefined) {
       return res.render('404');
     }
@@ -134,14 +136,23 @@ app.get('/logout', (req, res) => {
 });
 
 // Post login info
-app.post('/login',
-  passport.authenticate('local', {
-    successRedirect : '/',
-    failureRedirect : '/login'
+app.post('/login', (req, res) => {
+  User.findOne({
+    where : {
+      username : req.body.username
+    }
   })
-);
+  .then((user) => {
+    bcrypt.compare(req.body.password, user.password, function(err, boolean) {
+      if (boolean == false) {
+        return res.redirect('/login');
+      }
+      return res.redirect('/');
+    })
+  })
+});
 
-// // Posting a new photo
+// Posting a new photo
 app.post('/gallery', (req,res) => {
   Photo.create({
     author: req.body.author,
@@ -169,17 +180,21 @@ app.post('/gallerys', (req,res) => {
 
 // Post to register a new User
 app.post('/register', usernameVerification(User), passwordVal(), (req, res) => {
-  User.create({
-    first_name: req.body.first_name,
-    username: req.body.username,
-    password: req.body.password
+  const saltRounds = 10;
+  let pw = req.body.password;
+  bcrypt.hash(pw, saltRounds, function (err, hash) {
+    User.create({
+      first_name: req.body.first_name,
+      username: req.body.username,
+      password: hash
+    })
+    .then((user) => {
+      return res.redirect('/login');
+    })
+    .catch((error) => {
+      return res.send(error);
+    });
   })
-  .then((user) => {
-    return res.redirect('/login');
-  })
-  .catch((error) => {
-    return res.send(error);
-  });
 });
 
 // // '/gallery/:id/edit' route redirects here to do the editing
