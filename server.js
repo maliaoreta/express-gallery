@@ -11,7 +11,8 @@ const express = require('express'),
       LocalStrategy = require('passport-local').Strategy,
       CONFIG = require('./config/config.json'),
       isAuthorized = require('./middleware/isAuthorized.js'),
-      passwordVal = require('./middleware/passwordVal');
+      passwordVal = require('./middleware/passwordVal'),
+      usernameVerification = require('./middleware/usernameVerification');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -153,7 +154,7 @@ app.post('/gallerys', (req,res) => {
 });
 
 // Post to register a new User
-app.post('/register', passwordVal(), (req, res) => {
+app.post('/register', usernameVerification(User), passwordVal(), (req, res) => {
   User.create({
     first_name: req.body.first_name,
     username: req.body.username,
