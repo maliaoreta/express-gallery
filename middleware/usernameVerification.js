@@ -9,7 +9,7 @@ function validateUsername(User){
       }
     })
     .then((user) => {
-      if (user !== null){
+      if (user[0] !== undefined){
         return res.status(400).json({ failure : "username" });
       }
       return next();
