@@ -27,21 +27,22 @@ app.use(passport.session());
 passport.use(new LocalStrategy(
   (username, password, done) => {
     User.findOne({
-      where: { username : username, password : password }
+      where: { username : username }
     })
     .then((User) => {
       if (User === null) {
         return done(null, false)
       }
-      let USERNAME = User.username;
-      let PASSWORD = User.password;
-      if (!(username === USERNAME && password === PASSWORD)) {
-        return done(null, false)
-      }
-      let user = {
-        name: USERNAME
-      };
-      return done(null, user);
+      bcrypt.compare(password, User.password, function(err, boolean) {
+        if (boolean === false){
+          return done(null, false)
+        }
+        let USERNAME = User.username;
+        let user = {
+          name: USERNAME
+        };
+        return done(null, user);
+      });
     })
     .catch((error) => {
       throw new Error (error);
@@ -136,21 +137,12 @@ app.get('/logout', (req, res) => {
 });
 
 // Post login info
-app.post('/login', (req, res) => {
-  User.findOne({
-    where : {
-      username : req.body.username
-    }
+app.post('/login',
+  passport.authenticate('local', {
+    successRedirect : '/',
+    failureRedirect : '/login'
   })
-  .then((user) => {
-    bcrypt.compare(req.body.password, user.password, function(err, boolean) {
-      if (boolean == false) {
-        return res.redirect('/login');
-      }
-      return res.redirect('/');
-    })
-  })
-});
+);
 
 // Posting a new photo
 app.post('/gallery', (req,res) => {
