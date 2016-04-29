@@ -13,6 +13,8 @@ registerBtn.addEventListener('click', (event) => {
   });
 
   rReq.onreadystatechange = function () {
+
+    // display error msgs
     if (rReq.readyState == 4 && rReq.status != 200) {
       let res = JSON.parse(this.responseText);
       let errorDiv = document.getElementById('errorDiv');
@@ -22,6 +24,11 @@ registerBtn.addEventListener('click', (event) => {
       else if (res.failure === "username") {
         errorDiv.innerHTML = "Username already exists"
       }
+    }
+    // hide registration form if successful register
+    else if (rReq.readyState == 4 && rReq.status == 200) {
+      let registerForm = document.getElementById('registerForm');
+      registerForm.style.display = 'none';
     }
   }
 
