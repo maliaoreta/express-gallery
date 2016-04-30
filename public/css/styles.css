@@ -1,14 +1,9 @@
 body {
+  background-image: url("./img/ticks.png");
   font-family: 'Open Sans', sans-serif;
   color: gray;
   width: 80%;
   margin: auto; }
-  @media only screen and (min-width: 550px) {
-    body {
-      background-color: pink; } }
-  @media only screen and (min-width: 800px) {
-    body {
-      background-color: lightgreen; } }
 
 #header {
   margin-top: 3em;
@@ -41,18 +36,19 @@ body {
 #focusedPhoto {
   flex: 0 1 100%;
   max-width: 100%;
-  overflow-wrap: break-word;
-  border: 1px solid red; }
+  overflow-wrap: break-word; }
   @media only screen and (min-width: 550px) {
     #focusedPhoto {
       flex: 0 1 100%; } }
   @media only screen and (min-width: 800px) {
     #focusedPhoto {
+      flex: 0 1 100%; } }
+  @media only screen and (min-width: 1400px) {
+    #focusedPhoto {
       flex: 0 1 57%; } }
   #focusedPhoto img {
-    width: 90%;
-    margin: auto;
-    padding-left: 2.2em; }
+    width: 100%;
+    margin: auto; }
   #focusedPhoto p {
     font-size: 1em; }
     @media only screen and (min-width: 550px) {
@@ -74,29 +70,30 @@ body {
         font-size: 1.7em; } }
 
 #photos {
-  border: 2px solid purple;
   flex: 0 1 100%;
   flex-flow: row wrap;
   overflow: auto;
   padding-left: 3em;
   padding-top: 3.8em;
-  display: none; }
+  display: none;
+  overflow-wrap: break-word;
+  overflow: auto; }
   @media only screen and (min-width: 550px) {
     #photos {
       display: flex; } }
   @media only screen and (min-width: 800px) {
     #photos {
       display: flex;
+      flex: 0 1 100; } }
+  @media only screen and (min-width: 1400px) {
+    #photos {
       max-width: 38%; } }
   #photos a {
     text-decoration: none;
     color: gray;
     overflow: hidden; }
   #photos img {
-    max-width: 80%; }
-  #photos p {
-    padding-bottom: 1em;
-    flex: 0 1 100%; }
+    width: 100%; }
 
 #container {
   display: flex;
