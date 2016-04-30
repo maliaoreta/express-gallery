@@ -28,6 +28,10 @@ body{
   @include respond-to('medium') {
     background-color: pink;
   }
+
+  @include respond-to('large') {
+    background-color: lavender;
+  }
 }
 #header{
   margin-top: 3em;
@@ -37,28 +41,99 @@ body{
 }
 #architekt{
   flex: 1 0 60%;
-  font-size: 1.8em;
+  border-top: 2px solid lightgray;
+
 
   h1{
-    border-top: 2px solid lightgray;
+    font-size: 3em;
     text-align: center;
     margin: 0px;
     padding-bottom: 1em;
+    
+    @include respond-to('medium') {
+      font-size: 3em;
+      padding-bottom: 0.2em;
+    }
+
+    @include respond-to('large') {
+      text-align: left;
+      font-size: 4em;
+    }
   }
 
-  .log {
-    background-color: pink;
+}
+
+#logBtns {
+  flex: 0 1 100%;
+  
+  @include respond-to('medium') {
+    margin-bottom: 1em;
+  }
+
+  #login {
+    background-image: linear-gradient(#a8caee, #297db5);
+    font-size: 1em;
+    border-radius: 0.4em;
+    border-color: #7dafe6;
+    color: whitesmoke;
+
+    @include respond-to('medium') {
+      font-size: 1.3em;
+    }
+
+    @include respond-to('large') {
+      font-size: 1.8em;
+    }
+  }
+
+  #logout {
+    background-image: linear-gradient(#cc99cc, #b266b2);
+    font-size: 1em;
+    border-radius: 0.4em;
+    border-color: #b266b2;
+    color: whitesmoke;
+
+    @include respond-to('medium') {
+      font-size: 1.3em;
+    }
+
+    @include respond-to('large') {
+      font-size: 1.8em;
+    }
   }
 }
 
+
 #welcome{
-  flex: 1 0 30%;
+  flex: 1 0 100%;
   padding: 5px;
   display: none;
 
+  @include respond-to('medium') {
+    display: flex;
+    font-size: 1em;
+  }
+
+  @include respond-to('large') {
+    display: flex;
+    border-top: 2px solid lightgray;
+    max-width: 38%;
+    max-height: 15em;
+    border-top: 2px solid lightgray;
+  }
+
   p{
-    border-left: 2px solid lightgray;
     padding-left: 20px;
+
+    @include respond-to('medium') {
+      border-bottom: 2px solid lightgray;
+      padding-bottom: 2em;
+    }
+
+    @include respond-to('large') {
+      border-left: 2px solid lightgray;
+      border-bottom: 0px;
+    }
   }
 }
 
@@ -121,32 +196,56 @@ a {
   max-width: 100%;
   height: 30%;
   margin: auto;
+
+  @include respond-to('medium') {
+    min-width: 100%;
+    height: 50%;
+  }
 }
 
 #photoCollection{
-  // display: flex;
-  // flex-flow: row wrap;
-  // justify-content: space-between;
-  border-top: 2px solid lightgray;
   flex: 1 0 100%;
   max-width: 100%;
 
+  @include respond-to('large') {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
   .aContainer{
-    flex: 1 0 32%;
     margin-top: 20px;
     margin-left: 1em;
     margin-right: 1em;
     text-decoration: none;
+
+    @include respond-to('medium') {
+      margin-left: 2em;
+      margin-right: 2em;
+    }
+
+    @include respond-to('large') {
+      flex: 0 1 30%;
+      width: 30%;
+      margin: 0;
+      border-top: 2px solid lightgray;
+    }
 
     #imageContainer {
       height: 17em;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      // margin: 0;
-      // padding: 0;
       margin-bottom: 1.5em;
       margin-top: 2em;
+
+      @include respond-to('medium') {
+        height:32em;
+        width: 100%;
+      }
+
+      @include respond-to('large') {
+        height: 20em;
+      }
     }
 
     p{
@@ -159,12 +258,15 @@ a {
     }
   }
   
+
   // .borderLine:nth-child(3n+0) {
-  //   flex: 0 1 100%;
-  //   margin-top: 1.5em;
-  //   margin-bottom: 1em;
-  //   background-color: lightgray;
-  //   height: 2px;
+  //   @include respond-to('large') {
+  //     flex: 0 1 100%;
+  //     margin-top: 1.5em;
+  //     margin-bottom: 1em;
+  //     background-color: lightgray;
+  //     height: 2px;
+  //   }
   // }
 
   .borderLine:last-of-type {
