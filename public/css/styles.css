@@ -40,17 +40,26 @@ body {
   @media only screen and (min-width: 550px) {
     #architektLink {
       font-size: 3em;
+      text-align: center;
+      margin: 0px;
+      padding-bottom: 1em; } }
+  @media only screen and (min-width: 550px) and (min-width: 550px) {
+    #architektLink {
+      font-size: 3em;
       padding-bottom: 0.2em; } }
+  @media only screen and (min-width: 550px) and (min-width: 800px) {
+    #architektLink {
+      text-align: left;
+      font-size: 4em; } }
   @media only screen and (min-width: 800px) {
     #architektLink {
       font-size: 4em; } }
 
 #logBtns {
-  flex: 0 1 100%;
-  margin-bottom: 1em; }
-  @media only screen and (min-width: 800px) {
+  flex: 0 1 100%; }
+  @media only screen and (min-width: 550px) {
     #logBtns {
-      margin: 0; } }
+      margin-bottom: 1em; } }
   #logBtns #login {
     background-image: linear-gradient(#a8caee, #297db5);
     font-size: 1em;
