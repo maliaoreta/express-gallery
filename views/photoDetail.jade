@@ -8,7 +8,7 @@ block content
       img(src="#{photo.link}")
       p#singleDescription #{photo.description} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo nesciunt debitis reiciendis optio, autem sed delectus non, culpa incidunt minus facere ipsa quos cupiditate in, repellat perferendis distinctio aperiam sapiente.
       a(href="/gallery/#{photo.id}/edit")
-        button Edit
+        button Edit Photo
     div#photos
       each photoItem in photoArr
         a(href="http://localhost:3000/gallery/#{photoItem.id}")
