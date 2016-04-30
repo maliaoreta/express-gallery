@@ -28,6 +28,10 @@ body{
   @include respond-to('medium') {
     background-color: pink;
   }
+
+  @include respond-to('large') {
+    background-color: lightgreen;
+  }
 }
 #header{
   margin-top: 3em;
@@ -70,41 +74,95 @@ body{
 }
 
 #focusedPhoto {
-  flex: 0 1 57%;
-  max-width: 57%;
+  flex: 0 1 100%;
+  max-width: 100%;
   overflow-wrap: break-word;
+  border: 1px solid red;
+  // display: flex;
+
+  @include respond-to('medium') {
+    flex: 0 1 100%;
+  }
+
+  @include respond-to('large') {
+    flex: 0 1 57%;
+  }
 
   img {
-    min-width: 100%;
+    width: 90%;
+    margin: auto;
+    padding-left: 2.2em;
+  }
+
+  p{
+    font-size: 1em;
+
+    @include respond-to('medium') {
+      font-size: 1.2em;
+    }
+
+    @include respond-to('large') {
+      font-size: 1.5em;
+    }
+  }
+
+  button{
+    font-family: times;
+    font-size: 1.1em;
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+    @include respond-to('medium') {
+      font-size: 1.4em;
+    }
+
+    @include respond-to('large') {
+      font-size: 1.7em;
+    }
   }
 }
 
 #photos {
-  flex: 0 1 40%;
+  border: 2px solid purple;
+  flex: 0 1 100%;
+  flex-flow: row wrap;
   overflow: auto;
-  overflow-wrap: break-word;
+  // overflow-wrap: break-word;
   padding-left: 3em;
   padding-top: 3.8em;
-  max-width: 38%;
+  // max-width: 38%;
+  display: none;
 
-  #collectionImgs {
+  @include respond-to('medium') {
+    display: flex;
+  }
+
+  @include respond-to('large') {
+    display: flex;
+    max-width: 38%;
+
+  }
+
+  a {
+  text-decoration: none;
+  color: gray;
+  overflow: hidden;
+  }
+
+
+  img {
     max-width: 80%;
-    min-width: 100%;
+    // min-width: 100%;
+  }
+
+  p {
+    // margin: 0;
+    padding-bottom: 1em;
+    flex: 0 1 100%;
   }
 }
 
-#photos p {
-  margin: 0;
-}
 
-#collectionLink {
-  padding-bottom: 2em;
-}
-
-a {
-  text-decoration: none;
-  color: gray;
-}
 
 
 // Main Gallery Page

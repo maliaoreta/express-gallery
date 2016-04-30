@@ -6,6 +6,9 @@ body {
   @media only screen and (min-width: 550px) {
     body {
       background-color: pink; } }
+  @media only screen and (min-width: 800px) {
+    body {
+      background-color: lightgreen; } }
 
 #header {
   margin-top: 3em;
@@ -36,32 +39,64 @@ body {
   flex-flow: row wrap; }
 
 #focusedPhoto {
-  flex: 0 1 57%;
-  max-width: 57%;
-  overflow-wrap: break-word; }
+  flex: 0 1 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  border: 1px solid red; }
+  @media only screen and (min-width: 550px) {
+    #focusedPhoto {
+      flex: 0 1 100%; } }
+  @media only screen and (min-width: 800px) {
+    #focusedPhoto {
+      flex: 0 1 57%; } }
   #focusedPhoto img {
-    min-width: 100%; }
+    width: 90%;
+    margin: auto;
+    padding-left: 2.2em; }
+  #focusedPhoto p {
+    font-size: 1em; }
+    @media only screen and (min-width: 550px) {
+      #focusedPhoto p {
+        font-size: 1.2em; } }
+    @media only screen and (min-width: 800px) {
+      #focusedPhoto p {
+        font-size: 1.5em; } }
+  #focusedPhoto button {
+    font-family: times;
+    font-size: 1.1em;
+    margin-top: 3px;
+    margin-bottom: 3px; }
+    @media only screen and (min-width: 550px) {
+      #focusedPhoto button {
+        font-size: 1.4em; } }
+    @media only screen and (min-width: 800px) {
+      #focusedPhoto button {
+        font-size: 1.7em; } }
 
 #photos {
-  flex: 0 1 40%;
+  border: 2px solid purple;
+  flex: 0 1 100%;
+  flex-flow: row wrap;
   overflow: auto;
-  overflow-wrap: break-word;
   padding-left: 3em;
   padding-top: 3.8em;
-  max-width: 38%; }
-  #photos #collectionImgs {
-    max-width: 80%;
-    min-width: 100%; }
-
-#photos p {
-  margin: 0; }
-
-#collectionLink {
-  padding-bottom: 2em; }
-
-a {
-  text-decoration: none;
-  color: gray; }
+  display: none; }
+  @media only screen and (min-width: 550px) {
+    #photos {
+      display: flex; } }
+  @media only screen and (min-width: 800px) {
+    #photos {
+      display: flex;
+      max-width: 38%; } }
+  #photos a {
+    text-decoration: none;
+    color: gray;
+    overflow: hidden; }
+  #photos img {
+    max-width: 80%; }
+  #photos p {
+    padding-bottom: 1em;
+    flex: 0 1 100%; }
 
 #container {
   display: flex;
