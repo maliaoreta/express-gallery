@@ -51,7 +51,7 @@ body{
     text-align: center;
     margin: 0px;
     padding-bottom: 1em;
-    
+
     @include respond-to('medium') {
       font-size: 3em;
       padding-bottom: 0.2em;
@@ -67,7 +67,7 @@ body{
 
 #logBtns {
   flex: 0 1 100%;
-  
+
   @include respond-to('medium') {
     margin-bottom: 1em;
   }
@@ -94,6 +94,23 @@ body{
     border-radius: 0.4em;
     border-color: #b266b2;
     color: whitesmoke;
+
+    @include respond-to('medium') {
+      font-size: 1.3em;
+    }
+
+    @include respond-to('large') {
+      font-size: 1.8em;
+    }
+  }
+
+  #newPhoto{
+    background-image: linear-gradient(#FFA2CA, #C96D98);
+    font-size: 1em;
+    border-radius: 0.4em;
+    border-color: #C96D98;
+    color: whitesmoke;
+    float: right;
 
     @include respond-to('medium') {
       font-size: 1.3em;
