@@ -4,7 +4,6 @@ body {
   color: gray;
   width: 80%;
   margin: auto; }
-
   @media only screen and (min-width: 550px) {
     body {
       background-color: pink; } }
