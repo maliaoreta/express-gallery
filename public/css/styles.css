@@ -4,7 +4,6 @@ body {
   color: gray;
   width: 80%;
   margin: auto; }
-
   @media only screen and (min-width: 550px) {
     body {
       background-color: pink; } }
@@ -179,12 +178,14 @@ body {
   @media only screen and (min-width: 800px) {
     #photoCollection {
       display: flex;
-      flex-flow: row wrap; } }
+      flex-flow: row wrap;
+      border-top: 2px solid lightgray; } }
+  #photoCollection a {
+    text-decoration: none; }
   #photoCollection .aContainer {
     margin-top: 20px;
     margin-left: 1em;
-    margin-right: 1em;
-    text-decoration: none; }
+    margin-right: 1em; }
     @media only screen and (min-width: 550px) {
       #photoCollection .aContainer {
         margin-left: 2em;
@@ -194,7 +195,7 @@ body {
         flex: 0 1 30%;
         width: 30%;
         margin: 0;
-        border-top: 2px solid lightgray; } }
+        margin-left: 1.31em; } }
     #photoCollection .aContainer #imageContainer {
       height: 17em;
       background-repeat: no-repeat;
@@ -216,6 +217,13 @@ body {
       overflow: auto;
       overflow-wrap: break-word;
       font-size: 1.3em; }
+  @media only screen and (min-width: 800px) {
+    #photoCollection .borderLine:nth-child(3n+0) {
+      flex: 0 1 100%;
+      margin-top: 1.5em;
+      margin-bottom: 1em;
+      background-color: lightgray;
+      height: 2px; } }
   #photoCollection .borderLine:last-of-type {
     flex: 0 1 100%;
     background-color: lightgray;
