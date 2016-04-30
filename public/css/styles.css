@@ -5,6 +5,13 @@ body {
   width: 80%;
   margin: auto; }
 
+  @media only screen and (min-width: 550px) {
+    body {
+      background-color: pink; } }
+  @media only screen and (min-width: 800px) {
+    body {
+      background-color: lavender; } }
+
 #header {
   margin-top: 3em;
   display: flex;
@@ -12,22 +19,76 @@ body {
 
 #architekt {
   flex: 1 0 60%;
-  font-size: 1.8em; }
+  border-top: 2px solid lightgray; }
   #architekt h1 {
-    border-top: 2px solid lightgray;
+    font-size: 3em;
     text-align: center;
     margin: 0px;
     padding-bottom: 1em; }
-  #architekt .log {
-    background-color: pink; }
+    @media only screen and (min-width: 550px) {
+      #architekt h1 {
+        font-size: 3em;
+        padding-bottom: 0.2em; } }
+    @media only screen and (min-width: 800px) {
+      #architekt h1 {
+        text-align: left;
+        font-size: 4em; } }
+
+#logBtns {
+  flex: 0 1 100%; }
+  @media only screen and (min-width: 550px) {
+    #logBtns {
+      margin-bottom: 1em; } }
+  #logBtns #login {
+    background-image: linear-gradient(#a8caee, #297db5);
+    font-size: 1em;
+    border-radius: 0.4em;
+    border-color: #7dafe6;
+    color: whitesmoke; }
+    @media only screen and (min-width: 550px) {
+      #logBtns #login {
+        font-size: 1.3em; } }
+    @media only screen and (min-width: 800px) {
+      #logBtns #login {
+        font-size: 1.8em; } }
+  #logBtns #logout {
+    background-image: linear-gradient(#cc99cc, #b266b2);
+    font-size: 1em;
+    border-radius: 0.4em;
+    border-color: #b266b2;
+    color: whitesmoke; }
+    @media only screen and (min-width: 550px) {
+      #logBtns #logout {
+        font-size: 1.3em; } }
+    @media only screen and (min-width: 800px) {
+      #logBtns #logout {
+        font-size: 1.8em; } }
 
 #welcome {
-  flex: 1 0 30%;
+  flex: 1 0 100%;
   padding: 5px;
   display: none; }
+  @media only screen and (min-width: 550px) {
+    #welcome {
+      display: flex;
+      font-size: 1em; } }
+  @media only screen and (min-width: 800px) {
+    #welcome {
+      display: flex;
+      border-top: 2px solid lightgray;
+      max-width: 38%;
+      max-height: 15em;
+      border-top: 2px solid lightgray; } }
   #welcome p {
-    border-left: 2px solid lightgray;
     padding-left: 20px; }
+    @media only screen and (min-width: 550px) {
+      #welcome p {
+        border-bottom: 2px solid lightgray;
+        padding-bottom: 2em; } }
+    @media only screen and (min-width: 800px) {
+      #welcome p {
+        border-left: 2px solid lightgray;
+        border-bottom: 0px; } }
 
 #detailContainer {
   display: flex;
@@ -107,17 +168,33 @@ body {
   max-width: 100%;
   height: 30%;
   margin: auto; }
+  @media only screen and (min-width: 550px) {
+    #staticPhoto {
+      min-width: 100%;
+      height: 50%; } }
 
 #photoCollection {
-  border-top: 2px solid lightgray;
   flex: 1 0 100%;
   max-width: 100%; }
+  @media only screen and (min-width: 800px) {
+    #photoCollection {
+      display: flex;
+      flex-flow: row wrap; } }
   #photoCollection .aContainer {
-    flex: 1 0 32%;
     margin-top: 20px;
     margin-left: 1em;
     margin-right: 1em;
     text-decoration: none; }
+    @media only screen and (min-width: 550px) {
+      #photoCollection .aContainer {
+        margin-left: 2em;
+        margin-right: 2em; } }
+    @media only screen and (min-width: 800px) {
+      #photoCollection .aContainer {
+        flex: 0 1 30%;
+        width: 30%;
+        margin: 0;
+        border-top: 2px solid lightgray; } }
     #photoCollection .aContainer #imageContainer {
       height: 17em;
       background-repeat: no-repeat;
@@ -125,6 +202,13 @@ body {
       background-position: center;
       margin-bottom: 1.5em;
       margin-top: 2em; }
+      @media only screen and (min-width: 550px) {
+        #photoCollection .aContainer #imageContainer {
+          height: 32em;
+          width: 100%; } }
+      @media only screen and (min-width: 800px) {
+        #photoCollection .aContainer #imageContainer {
+          height: 20em; } }
     #photoCollection .aContainer p {
       color: gray;
       font-family: times;
