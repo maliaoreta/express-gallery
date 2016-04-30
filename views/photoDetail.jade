@@ -12,6 +12,6 @@ block content
     div#photos
       each photoItem in photoArr
         a(href="http://localhost:3000/gallery/#{photoItem.id}")
-          img#collectionImgs(src="#{photoItem.link}")
+          img(src="#{photoItem.link}")
           p #{photoItem.author} -
-          p#collectionLink #{photoItem.link}
+          p #{photoItem.link}
