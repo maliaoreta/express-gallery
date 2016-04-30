@@ -29,6 +29,8 @@ registerBtn.addEventListener('click', (event) => {
     else if (rReq.readyState == 4 && rReq.status == 200) {
       let registerForm = document.getElementById('registerForm');
       registerForm.style.display = 'none';
+      let registerHeader = document.getElementById('registerHeader');
+      registerHeader.style.display = 'none';
     }
   }
 
