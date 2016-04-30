@@ -268,13 +268,17 @@ body{
   @include respond-to('large') {
     display: flex;
     flex-flow: row wrap;
+    border-top: 2px solid lightgray;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   .aContainer{
     margin-top: 20px;
     margin-left: 1em;
     margin-right: 1em;
-    text-decoration: none;
 
     @include respond-to('medium') {
       margin-left: 2em;
@@ -285,7 +289,7 @@ body{
       flex: 0 1 30%;
       width: 30%;
       margin: 0;
-      border-top: 2px solid lightgray;
+      margin-left: 1.31em;
     }
 
     #imageContainer {
@@ -316,15 +320,15 @@ body{
     }
   }
 
-  // .borderLine:nth-child(3n+0) {
-  //   @include respond-to('large') {
-  //     flex: 0 1 100%;
-  //     margin-top: 1.5em;
-  //     margin-bottom: 1em;
-  //     background-color: lightgray;
-  //     height: 2px;
-  //   }
-  // }
+  .borderLine:nth-child(3n+0) {
+    @include respond-to('large') {
+      flex: 0 1 100%;
+      margin-top: 1.5em;
+      margin-bottom: 1em;
+      background-color: lightgray;
+      height: 2px;
+    }
+  }
 
   .borderLine:last-of-type {
     flex: 0 1 100%;
