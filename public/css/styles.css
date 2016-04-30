@@ -14,30 +14,43 @@ body {
 #header {
   margin-top: 3em;
   display: flex;
-  flex-flow: row wrap; }
+  flex-flow: row wrap;
+  border-top: 2px solid lightgray; }
 
 #architekt {
-  flex: 1 0 60%;
-  border-top: 2px solid lightgray; }
-  #architekt h1 {
-    font-size: 3em;
-    text-align: center;
-    margin: 0px;
-    padding-bottom: 1em; }
-    @media only screen and (min-width: 550px) {
-      #architekt h1 {
-        font-size: 3em;
-        padding-bottom: 0.2em; } }
-    @media only screen and (min-width: 800px) {
-      #architekt h1 {
-        text-align: left;
-        font-size: 4em; } }
+  margin: 0;
+  margin-bottom: 1em;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1em;
+  border-bottom: 2px solid lightgray; }
+  @media only screen and (min-width: 550px) {
+    #architekt {
+      border-bottom: 0; } }
+  @media only screen and (min-width: 800px) {
+    #architekt {
+      text-align: left;
+      width: 60%;
+      border-bottom: 0; } }
+
+#architektLink {
+  text-decoration: none;
+  font-size: 3em;
+  color: gray; }
+  @media only screen and (min-width: 550px) {
+    #architektLink {
+      font-size: 3em;
+      padding-bottom: 0.2em; } }
+  @media only screen and (min-width: 800px) {
+    #architektLink {
+      font-size: 4em; } }
 
 #logBtns {
-  flex: 0 1 100%; }
-  @media only screen and (min-width: 550px) {
+  flex: 0 1 100%;
+  margin-bottom: 1em; }
+  @media only screen and (min-width: 800px) {
     #logBtns {
-      margin-bottom: 1em; } }
+      margin: 0; } }
   #logBtns #login {
     background-image: linear-gradient(#a8caee, #297db5);
     font-size: 1em;
@@ -49,7 +62,8 @@ body {
         font-size: 1.3em; } }
     @media only screen and (min-width: 800px) {
       #logBtns #login {
-        font-size: 1.8em; } }
+        font-size: 1.8em;
+        margin-bottom: 2em; } }
   #logBtns #logout {
     background-image: linear-gradient(#cc99cc, #b266b2);
     font-size: 1em;
@@ -74,10 +88,8 @@ body {
   @media only screen and (min-width: 800px) {
     #welcome {
       display: flex;
-      border-top: 2px solid lightgray;
       max-width: 38%;
-      max-height: 15em;
-      border-top: 2px solid lightgray; } }
+      max-height: 15em; } }
   #welcome p {
     padding-left: 20px; }
     @media only screen and (min-width: 550px) {
@@ -160,11 +172,12 @@ body {
   flex-flow: row wrap; }
 
 #staticPhotoDiv {
-  flex: 0 1 100%; }
+  flex: 0 1 100%;
+  border-bottom: 2px solid lightgray; }
 
 #staticPhoto {
   padding-bottom: 20px;
-  max-width: 100%;
+  min-width: 100%;
   height: 30%;
   margin: auto; }
   @media only screen and (min-width: 550px) {
@@ -178,8 +191,7 @@ body {
   @media only screen and (min-width: 800px) {
     #photoCollection {
       display: flex;
-      flex-flow: row wrap;
-      border-top: 2px solid lightgray; } }
+      flex-flow: row wrap; } }
   #photoCollection a {
     text-decoration: none; }
   #photoCollection .aContainer {
